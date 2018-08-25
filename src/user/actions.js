@@ -4,12 +4,6 @@ const types = {
   SET: 'user/set',
 };
 
-export function clearLoginError() {
-  return {
-    type: types.CLEAR_LOGIN_ERROR,
-  }
-}
-
 export function setProfile(data = {}) {
   return {
     type: types.SET,

@@ -5,7 +5,7 @@ import * as actions from '../user/actions';
 
 const stateToProps = ({ user: { login } }) => ({ login });
 
-class LogonPage extends Component {
+export class WelcomePage extends Component {
   static propTypes = {
     login: PropTypes.string.isRequired,
   };
@@ -20,7 +20,7 @@ class LogonPage extends Component {
       .catch(() => {
         this.setState({ inProgress: false });
       })
-  }
+  };
 
   render() {
     const {
@@ -32,10 +32,10 @@ class LogonPage extends Component {
     } = this.state;
 
     return <div>
-      <div>{`Welcome, ${login}!`}</div>
-      <div><button disabled={inProgress} onClick={this.logout}>Logout</button></div>
+      <div className="welcome">{`Welcome, ${login}!`}</div>
+      <div className="button"><button disabled={inProgress} onClick={this.logout}>Logout</button></div>
     </div>;
   }
 }
 
-export default connect(stateToProps)(LogonPage)
+export default connect(stateToProps)(WelcomePage)

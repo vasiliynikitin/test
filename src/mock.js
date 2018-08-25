@@ -35,11 +35,11 @@ const api = [
   { url: '/users/logout', method: 'POST', callback: logout },
 ];
 
-const mock = function({ url, method = 'get', data }) {
+const mock = function({ url, method = 'get', body }) {
   const apiMethod = api.find(({ url: apiUrl, method: httpMethod }) => url === apiUrl && method.toUpperCase() === httpMethod);
   return new Promise((resolve) => { setTimeout(resolve, 1000);})
     .then(() => apiMethod
-        ? apiMethod.callback(data)
+        ? apiMethod.callback(body)
         : Promise.reject({ error: `Api method for [${method.toUpperCase()}] '${url}' not found`})
     );
 };

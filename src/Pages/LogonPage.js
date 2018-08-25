@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../user/actions';
 import { parseInputChange } from '../utils';
 
-class LogonPage extends Component {
+export class LogonPage extends Component {
   state = {
     login: '',
     password: '',
@@ -63,7 +63,7 @@ class LogonPage extends Component {
           onChange={this.handleInputChange}
         />
       </div>
-      <div><button disabled={inProgress} onClick={this.login}>Login</button></div>
+      <div className="button"><button disabled={inProgress} onClick={this.login}>Login</button></div>
       { error && <div>Login Error!</div> }
     </div>;
   }
